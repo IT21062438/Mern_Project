@@ -1,0 +1,32 @@
+.home-ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f4f4f4;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .home-li {
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .home-li a {
+    text-decoration: none;
+  }
+  
+  .home-li h2 {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+  }
+  
+  .home-li:hover {
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+  }
+  
