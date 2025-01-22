@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const userSchema = new Schema({
+const regiSchema = new Schema({
   name: {
     type: String, //dataType
     required: true, //Validate
@@ -10,17 +10,13 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-  age: {
-    type: Number,
-    required: true,
-  },
-  address: {
+  password: {
     type: String,
     required: true,
   },
 });
 
 module.exports = mongoose.model(
-  "UserModel", //file name
-  userSchema //function name
+  "Register", //file name
+  regiSchema //function name
 );

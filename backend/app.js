@@ -17,3 +17,20 @@ mongoose
   })
 
   .catch((err) => console.log(err));
+
+//Call Register Model
+require("./Model/Register.js");
+const User = mongoose.model("Register");
+app.post("/register", async (req, res) => {
+  const { name, gmail, password } = req.body;
+  try {
+    await User.create({
+      name,
+      gmail,
+      password,
+    });
+    res.send({ status: "ok" });
+  } catch (err) {
+    res.send({ status: "err" });
+  }
+});
