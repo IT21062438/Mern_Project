@@ -3,6 +3,7 @@ import Nav from "../Nav/Nav.js";
 import axios from "axios";
 import User from "../User/User.js";
 import { useReactToPrint } from "react-to-print";
+import "./UserDetails.css";
 
 const URL = "http://localhost:5000/users";
 
@@ -47,6 +48,18 @@ function UserDetails() {
     onAfterPrint: () => alert("User Report Successfully Downloaded!"),
   });
 
+  const handleSendReport = () => {
+    //Creat whatsapp caht url
+    const phoneNumber = "+94770685129";
+    const message = `selected user reports`;
+    const WhatsAppUrl = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+      message
+    )}`;
+
+    //open whatsapp in new window
+    window.open(WhatsAppUrl, "_blank");
+  };
+
   return (
     <div>
       <Nav />
@@ -57,7 +70,9 @@ function UserDetails() {
         name="search"
         placeholder="Search User Details"
       />
-      <button onClick={handleSearch}>Search</button>
+      <button onClick={handleSearch} className="btn-search">
+        Search
+      </button>
       {noResults ? (
         <div>
           <p>No Users Found</p>
@@ -73,7 +88,15 @@ function UserDetails() {
             ))}
         </div>
       )}
-      <button onClick={handlePrint}>Download Report</button>
+      <br />
+      <button onClick={handlePrint} className="btn-download">
+        Download Report
+      </button>
+      <br />
+      <br />
+      <button onClick={handleSendReport} className="btn-wapp">
+        Send whatsapp Message
+      </button>
     </div>
   );
 }
