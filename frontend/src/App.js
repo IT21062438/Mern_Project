@@ -7,6 +7,7 @@ import AddUser from "./Components/AddUser/AddUser.js";
 import UpdateUser from "./Components/UpdateUser/UpdateUser.js";
 import Register from "./Components/Register/Register.js";
 import Login from "./Components/Login/Login.js";
+import ContactUs from "./Components/ContactUs/ContactUs.js";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/userdetails" element={<UserDetails />} />
         <Route path="/register" element={<Register />} />
         <Route path="/log" element={<Login />} />
+        <Route path="/contact" element={<ContactUs />} />
         <Route path="/userdetails/:id" element={<UpdateUser />} />
       </Routes>
     </div>
