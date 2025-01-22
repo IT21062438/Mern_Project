@@ -34,3 +34,22 @@ app.post("/register", async (req, res) => {
     res.send({ status: "err" });
   }
 });
+
+//Login
+app.post("/login", async (req, res) => {
+  const { gmail, password } = req.body;
+  try {
+    const user = await User.findOne({ gmail });
+    if (!user) {
+      return req.json({ err: "User not found" });
+    }
+    if (user.password === password) {
+      return res.json({ status: "ok" });
+    } else {
+      return res.json({ err: "Incorrect Password" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ err: "server error" });
+  }
+});

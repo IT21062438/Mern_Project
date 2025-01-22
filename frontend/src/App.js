@@ -6,6 +6,8 @@ import UserDetails from "./Components/UserDetails/UserDetails.js";
 import AddUser from "./Components/AddUser/AddUser.js";
 import UpdateUser from "./Components/UpdateUser/UpdateUser.js";
 import Register from "./Components/Register/Register.js";
+import Login from "./Components/Login/Login.js";
+
 function App() {
   return (
     <div>
@@ -15,6 +17,7 @@ function App() {
         <Route path="/adduser" element={<AddUser />} />
         <Route path="/userdetails" element={<UserDetails />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/log" element={<Login />} />
         <Route path="/userdetails/:id" element={<UpdateUser />} />
       </Routes>
     </div>
