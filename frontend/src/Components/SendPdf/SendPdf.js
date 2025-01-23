@@ -1,0 +1,77 @@
+import React, { use, useEffect, useState } from "react";
+import Nav from "../Nav/Nav";
+import axios from "axios";
+
+function SendPdf() {
+  const [title, setTitle] = useState("");
+  const [file, saveFile] = useState("");
+  const [allPdf, setAllPdf] = useState("");
+
+  useEffect(() => {
+    getpdf();
+  }, []);
+
+  const getpdf = async () => {
+    const result = await axios.get("http://localhost:5000/getFile");
+    console.log(result.data.data);
+    setAllPdf(result.data.data);
+  };
+
+  const submitPdf = async (e) => {
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("file", file);
+    console.log(title, file);
+
+    try {
+      const result = await axios.post(
+        "http://localhost:5000/uploadfile",
+        formData,
+        {
+          headers: { "Content-Type": "multipart/form-data" },
+        }
+      );
+      console.log(result);
+      if (result.data.status === 200) {
+        alert("Pdf Uploaded Successfully..");
+      } else {
+        alert("Upload Error!!");
+      }
+    } catch (err) {
+      console.err("Error Uploading" + err.message);
+      alert("Error Uploading");
+    }
+  };
+
+  return (
+    <div>
+      <Nav />
+      <h2>Send Pdf</h2>
+      <form onSubmit={submitPdf}>
+        <label>Pdf Title</label>
+        <br></br>
+        <input
+          type="text"
+          required
+          onChange={(e) => setTitle(e.target.value)}
+        ></input>
+        <br></br>
+        <br></br>
+        <label>Select Pdf File</label>
+        <br></br>
+        <input
+          type="file"
+          accept="application/pdf"
+          required
+          onChange={(e) => saveFile(e.target.files[0])}
+        ></input>
+        <br></br>
+        <br></br>
+        <button>Submit</button>
+      </form>
+    </div>
+  );
+}
+
+export default SendPdf;
