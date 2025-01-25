@@ -59,7 +59,7 @@ app.post("/login", async (req, res) => {
 const multer = require("multer");
 const storage = multer.diskStorage({
   destination: function (req, file, cd) {
-    cd(null, "./file");
+    cd(null, "./files");
   },
   filename: function (req, file, cd) {
     const uniqueSuffix = Date.now();
