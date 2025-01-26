@@ -43,8 +43,9 @@ function SendPdf() {
       console.log(result);
       if (result.data.status === 200) {
         alert("Pdf Uploaded Successfully..");
+        getpdf();
       } else {
-        alert("Upload Error!!");
+        alert("Upload Failed!!");
       }
     } catch (err) {
       console.err("Error Uploading" + err.message);

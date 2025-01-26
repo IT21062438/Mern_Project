@@ -20,10 +20,10 @@ function Login() {
     try {
       const responce = await sendRequest();
       if (responce.status === "ok") {
-        alert("Login Success");
+        alert("Login Success...");
         history("/mainhome");
       } else {
-        alert("Login Error");
+        alert("Plse enter valid gmail and password...");
       }
     } catch (err) {
       //alert("error" + err.message);
