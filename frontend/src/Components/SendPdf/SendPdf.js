@@ -1,4 +1,4 @@
-import React, { use, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../Nav/Nav";
 import axios from "axios";
 import PdfView from "./PdfView";
