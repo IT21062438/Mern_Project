@@ -84,7 +84,7 @@ function SendPdf() {
       </form>
       <div>
         <h4>Pdf Details</h4>
-        {allPdf == null
+        {allPdf === null
           ? ""
           : allPdf.map((data) => (
               <div key={data._id}>

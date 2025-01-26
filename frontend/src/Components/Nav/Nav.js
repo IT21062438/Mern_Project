@@ -32,6 +32,11 @@ function Nav() {
           </Link>
         </li>
         <li className="home-li">
+          <Link to="/img" className="active home-a">
+            <h2>Images</h2>
+          </Link>
+        </li>
+        <li className="home-li">
           <Link to="/register" className="active home-a">
             <button>Register</button>
           </Link>

@@ -9,6 +9,7 @@ import Register from "./Components/Register/Register.js";
 import Login from "./Components/Login/Login.js";
 import ContactUs from "./Components/ContactUs/ContactUs.js";
 import SendPdf from "./Components/SendPdf/SendPdf.js";
+import ImgUploder from "./Components/ImgUploder/ImgUploder.js";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/log" element={<Login />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/sendpdf" element={<SendPdf />} />
+        <Route path="/img" element={<ImgUploder />} />
         <Route path="/userdetails/:id" element={<UpdateUser />} />
       </Routes>
     </div>
